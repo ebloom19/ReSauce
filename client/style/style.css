@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Akronim&family=Pacifico&display=swap');
+
+
+body {
+    text-align: center;
+}
+
+#freshness {
+    max-height: 100px;
+    float: left;
+    margin-right: -95px;
+}
+
+#logo {
+    font-family: 'Pacifico', cursive; 
+    font-size: 50px;
+}
+
+header {
+    background-color: rgb(194, 190, 190);
+    border: 2px solid;
+    max-height: 130px;
+}
+
+header ul li {
+    
+    list-style-type: none;
+    display: inline;
+    padding-right: 15px;
+    padding-left: 15px;
+    line-height: 100px; 
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+header ul li:hover {
+    color: rgb(172, 60, 16);
+    font-size: 25px;
+}
+
+#search_bar{
+    float: right;
+    
+}
+
+#bar {
+    text-align: center;
+}
+
+#search{
+    float: right;
+}
+
+#search:not(:first-child):hover{
+    color: black;
+    font-size: 20px;
+}
+
+#search_bar:not(:first-child):hover{
+    font-size: 20px;
+}
+
+#login {
+    margin-right: -250px;
+}
