@@ -11,6 +11,7 @@ const expressSession = require("express-session"); // Express library to handle 
 const connectPgSimple = require("connect-pg-simple");
 const pgSession = connectPgSimple(expressSession);
 
+const PORT = process.env.PORT || 3000;
 const app = express();
 const port = 3000;
 
@@ -28,7 +29,6 @@ app.use(
 app.use(express.json());
 app.use(express.static("client"));
 
-
-app.listen(port, () => {
-    console.log(`listening on port  http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`listening on port  http://localhost:${PORT}`);
 });
