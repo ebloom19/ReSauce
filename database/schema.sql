@@ -12,4 +12,3 @@ CREATE TABLE favourites (
     recipe TEXT,
     ingredients TEXT, 
     time INTEGER
-);
