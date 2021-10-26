@@ -1,0 +1,14 @@
+
+
+#intro {
+    padding-top: 100px;
+    font-size: 25px;
+    font-style: italic;
+    animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+

@@ -1,6 +1,6 @@
-
-
 console.log("hello world")
+
+// setting up fresh img
 const fresh = document.createElement("img")
 fresh.setAttribute('src', '/images/freshness.png');
 fresh.setAttribute('alt', 'freshness');
@@ -29,5 +29,10 @@ header.innerHTML = `
             </ul>`
 
 
+
+// this "mainDiv can be called in any JS file that is called in the index.HTML. No need to getEliment"            
+const mainDiv = document.createElement("div")
+mainDiv.setAttribute("id", "main_div")
+document.body.append(mainDiv)
 
 
