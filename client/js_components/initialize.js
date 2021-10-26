@@ -25,7 +25,7 @@ header.innerHTML = `
                 <li onClick="signUp()">Sign-Up</li>
                 <li id="login" onClick="login()">Login</li>
                 <li id="search_bar"><input id="bar" type="text" placeholder="Find recipes"></li>
-                <li id="search">Search:</li>
+                <li id="search" onClick="search()">Search:</li>
             </ul>`
 
 
