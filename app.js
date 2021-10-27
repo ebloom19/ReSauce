@@ -16,8 +16,6 @@ const recipeRouter = require('./controllers/recipesRouter');
 const app = express();
 const port = 3000;
 
-const apiKey = process.env.API_KEY;
-console.log(apiKey);
 
 app.use(
     expressSession({
