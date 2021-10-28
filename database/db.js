@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   db = new pg.Pool({
     database: "meal_reboot",
-    // password: 'antar525' // If you have a password on your local db
+    password: 'antar525' // If you have a password on your local db
   })
 }
 
