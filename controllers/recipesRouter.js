@@ -19,8 +19,7 @@ recipesRouter.get('/', (req, res) => {
 recipesRouter.get('/details/:id', (req, res) => {
     const id = req.params.id;
 
-    let baseUrl = `https://api.spoonacular.com/recipes/${id}/information${apiKey}`;
-    console.log(baseUrl);
+    let baseUrl = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}&`;
 
     axios.get(baseUrl).then((methodResponse) => {
         res.json(methodResponse.data);
