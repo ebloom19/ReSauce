@@ -12,3 +12,6 @@ CREATE TABLE favourites (
     recipe TEXT,
     ingredients TEXT, 
     time INTEGER
+
+
+DELETE FROM users WHERE name = '';
