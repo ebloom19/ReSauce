@@ -38,6 +38,36 @@ function search() {
 function renderMethod(id) {
     axios.get(`/recipes/details/${id}`).then((methodResults) => {
         console.log(methodResults.data);
+        let recipeData = {};
+
+        const recipeName = methodResults.data.title
+        const cookTime = methodResults.data.readyInMinutes
+        const servingSize = methodResults.data.servings
+        const recipeSummary = methodResults.data.summary
+        const recipeImage = methodResults.data.image
+        const ingredientsData = methodResults.data.extendedIngredients
+
+        recipeData[recipeName] = {
+            "cookTime" : cookTime,
+            "servingSize" : servingSize,
+            "recipeSummary" : recipeSummary,
+            "recipeImage" : recipeImage
+        }   
+        console.log(recipeData)
+        
+
+
+        // const  = document.createElement('ol');
+        // orderedList.class = 'method';
+        for (ingredient in ingredientsData) {
+            const ingredientId = ingredientsData[ingredient].id;
+            const ingredientName = ingredientsData[ingredient].name;
+            const ingredientMethod = ingredientsData[ingredient].original;
+            const ingredientQty = ingredientsData[ingredient].amount;
+            const ingredientUnit = ingredientsData[ingredient].unit;
+            console.log(ingredientId, ingredientName, ingredientMethod)
+            
+        }
 
         // Creating a numbered list of instructions
         const orderedList = document.createElement('ol');
@@ -57,4 +87,5 @@ function renderMethod(id) {
         mainDiv.replaceChildren(orderedList);
     });
 }
+
 
