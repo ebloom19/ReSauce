@@ -9,7 +9,7 @@ const recipesRouter = express.Router();
 
 recipesRouter.get('/', (req, res) => {
     const example = 'ingredients=apples,+flour,+sugar&number=2';
-    const defaultUrl = 'https://api.spoonacular.com/recipes/findByIngredients' + apiKey + example;
+    const defaultUrl = 'https://api.spoonacular.com/recipes/findByIngredients' + '?apiKey=' + apiKey + '&' + example;
     axios.get(defaultUrl).then((recipesResponse) => {
         res.json(recipesResponse.data);
     });
