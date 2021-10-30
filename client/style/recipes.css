@@ -1,0 +1,19 @@
+#recipeSteps {
+    position: relative;
+    z-index: 1;
+    padding: 30px 45px 30px 45px;
+    text-align: left;
+    margin-top: 30px;
+}
+
+#steps {
+    margin: 10px 0 10px 0;
+}
+
+#recipeDiv {
+    max-width: 600px;
+    padding: 30px 45px 30px 45px;
+    margin-top: 30px;
+    text-align: left;
+}
+
