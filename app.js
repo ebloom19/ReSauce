@@ -13,6 +13,7 @@ const pgSession = connectPgSimple(expressSession);
 
 const recipeRouter = require('./controllers/recipesRouter');
 const usersRouter = require('./controllers/users');
+const ingredientsRouter = require('./controllers/ingredientsRouter');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -35,6 +36,7 @@ app.use(express.static("client"));
 
 app.use('/recipes', recipeRouter);
 app.use('/users', usersRouter);
+app.use('/ingredients', ingredientsRouter);
 
 app.listen(port, () => {
     console.log(`listening on port  http://localhost:${port}`);

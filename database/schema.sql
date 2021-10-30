@@ -12,6 +12,14 @@ CREATE TABLE favourites (
     recipe TEXT,
     ingredients TEXT, 
     time INTEGER
+);
+
+CREATE TABLE ingredients (
+    id SERIAL PRIMARY KEY, 
+    users_id TEXT,
+    ingredients TEXT
+);
+
 
 
 DELETE FROM users WHERE name = '';
