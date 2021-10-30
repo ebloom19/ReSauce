@@ -1,4 +1,10 @@
 console.log("hello home")
+const mainDiv = document.createElement("div")
+mainDiv.setAttribute("id", "main_div")
+document.body.append(mainDiv)
+
+
+
 
 function home() {
     mainDiv.innerHTML = ''
