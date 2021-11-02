@@ -14,6 +14,7 @@ const pgSession = connectPgSimple(expressSession);
 const recipeRouter = require('./controllers/recipesRouter');
 const usersRouter = require('./controllers/users');
 const ingredientsRouter = require('./controllers/ingredientsRouter');
+const ensureAuth = require("./middleware/loggedInCheck")
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -34,8 +35,12 @@ app.use(
 app.use(express.json());
 app.use(express.static("client"));
 
-app.use('/recipes', recipeRouter);
 app.use('/users', usersRouter);
+
+app.use(ensureAuth);
+
+app.use('/recipes', recipeRouter);
+
 app.use('/ingredients', ingredientsRouter);
 
 app.listen(port, () => {
