@@ -7,9 +7,9 @@ const users = {
     .then((dbRes) => dbRes.rows);
     },
 
-    login(email, password) {
+    login(email) {
         return db
-    .query("SELECT * FROM users WHERE email = $1 AND password = $2", [email, password])
+    .query("SELECT * FROM users WHERE email = $1", [email])
     .then((dbRes) => dbRes.rows);
     }
 }

@@ -27,7 +27,7 @@ loggInMessage()
 console.log(loggedIn.innerText)
 
 
-// home if not logged in and ingredients page if and when logged in
+
 
 
 
