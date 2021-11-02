@@ -23,14 +23,16 @@ function ingredients() {
     
         const data = Object.fromEntries(formData.entries())
         axios.post('/ingredients', data).then((res) => {
-            ingredients()
+            
+        })
 
-        }).catch(err => {
-            message = err.response.data.message
-            loginNotSuccessfull = document.createElement("h1")
-            loginNotSuccessfull.innerHTML = message
-            mainDiv.append(loginNotSuccessfull)
-          })
+        axios.get('/ingredients', data).then((res) => {
+          const ingredientList = document.createElement("ul") 
+        })
+        
+
+
+        
     })
 }
 
