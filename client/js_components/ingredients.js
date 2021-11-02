@@ -11,6 +11,7 @@ function ingredients() {
       <form class="register-form">
         <input type="text" name="ingredient" placeholder="Ingredient"/>
         <button type="submit">Add Ingredient</button>
+        <button type="submit" onClick="search()" id="searchButton">Search</button>
       </form>
       </div>
     </div>`;
