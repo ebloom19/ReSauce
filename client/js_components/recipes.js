@@ -10,27 +10,32 @@ function search() {
     axios.get('/recipes').then((recipesResponse) => {
         // Info pulled from initial search
 
-        let returnedRecipes = {};
+        const recipesDiv = document.createElement('div');
+        recipesDiv.classList = 'recipesDiv';
 
         for (recipe in recipesResponse.data) {
-            const recipeTitle = recipesResponse.data[recipe].title;
-            const recipeId = recipesResponse.data[recipe].id;
-            returnedRecipes[recipeTitle] = recipeId;
+            const recipeDiv = document.createElement('div');
+            recipeDiv.classList = 'recipeDiv';
+
+            const recipeImage = document.createElement('img');
+            recipeImage.classList = 'recipeImage';
+            recipeImage.setAttribute('src', recipesResponse.data[recipe].image)
+            recipeImage.setAttribute('onClick', `renderMethod(${recipesResponse.data[recipe].id})`);
+            recipeDiv.append(recipeImage);
+
+            const recipeTitle = document.createElement('h3');
+            recipeTitle.innerText = recipesResponse.data[recipe].title;
+            recipeTitle.classList = 'recipeTitleTopLeft';
+            recipeDiv.append(recipeTitle);
+
+            const usedIngredients = document.createElement('h5')
+            usedIngredients.innerText = 'Used Ingredients: ' + recipesResponse.data[recipe].usedIngredientCount;
+            usedIngredients.classList = 'usedIngredientsBottomRight';
+            recipeDiv.append(usedIngredients);
+            recipesDiv.append(recipeDiv);
         };
 
-        const recipesDiv = document.createElement('div');
-        recipesDiv.class = 'recipesDiv';
-
-        for (const [title, id] of Object.entries(returnedRecipes)) {
-            const recipeTitle = document.createElement('h3');
-            recipeTitle.innerText = title;
-            recipeTitle.class = 'recipeTitle';
-            recipeTitle.setAttribute('onClick', `renderMethod(${id})`)
-            recipesDiv.append(recipeTitle)
-        }
-
         mainDiv.replaceChildren(recipesDiv);
-
     });
 
 }
@@ -77,7 +82,7 @@ function renderMethod(id) {
         // Recipe info div
         const recipeDiv = document.createElement('div');
         recipeDiv.classList = 'form';
-        recipeDiv.id = 'recipeDiv';
+        recipeDiv.id = 'selectedRecipeDiv';
         
 
         // DOM for recipe details
@@ -97,6 +102,11 @@ function renderMethod(id) {
         servings.innerText = 'Serving Size: ' + recipeData[recipeName]["servingSize"];
         servings.id = 'servings';
         recipeSummaryDiv.append(servings);
+
+        const recipeImageEl = document.createElement('img');
+        recipeImageEl.id = 'recipeImage';
+        recipeImageEl.src = recipeData[recipeName]["recipeImage"];
+        recipeSummaryDiv.append(recipeImageEl);
 
         const recipeSummaryEl = document.createElement('p');
         recipeSummaryEl.innerHTML = recipeData[recipeName]["recipeSummary"]
