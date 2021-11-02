@@ -11,6 +11,12 @@ const ingredients = {
         return db
     .query("SELECT * FROM ingredients WHERE users_id = $1", [id])
     .then((dbRes) => dbRes.rows);
+    },
+
+    deleteIngredients(id) {
+        return db
+    .query("DELETE FROM ingredients WHERE id = $1", [id])
+    .then((dbRes) => dbRes.rows);
     }
 
 

@@ -14,11 +14,17 @@ router.post('/', (req, res) => {
 })
 
 router.get('/', (req, res) => {
-    ingredients.getIngredients(id).then((response) => {
+    userID  =  req.session.userId
+    ingredients.getIngredients(userID).then((response) => {
         res.json(response)
     })
 })
 
+router.delete("/:id", (req, res) => {
+    userID  =  req.params.id
+    ingredients.deleteIngredients(userID)
+  });
+  
 
 
 
