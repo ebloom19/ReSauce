@@ -17,6 +17,31 @@ function ingredients() {
 
     mainDiv.replaceChildren(form)
 
+    axios.get('/ingredients').then((res) => {
+      console.log(res.data)
+      const ingredientList = document.createElement("div") 
+      for (each of res.data) {
+        const ingredientItem = document.createElement("p")
+        ingredientItem.textContent = each.ingredients
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = "Delete"
+        deleteButton.setAttribute('onClick', `deleteIngredient(${each.id})`);
+        ingredientItem.append(deleteButton)
+        
+        console.log(ingredientItem)
+        ingredientList.append(ingredientItem)
+
+        
+
+        mainDiv.append(ingredientList)
+
+        
+      }
+    })
+
+    
+
     form.addEventListener("submit",(event) => {
         event.preventDefault()
         const formData = new FormData(form)
@@ -32,6 +57,14 @@ function ingredients() {
             mainDiv.append(loginNotSuccessfull)
           })
     })
+}
+
+function deleteIngredient(id) {
+  console.log(id)
+  axios.delete(`/ingredients/${id}`).then(() => {
+    
+  })
+  ingredients()
 }
 
 
