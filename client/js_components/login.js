@@ -1,8 +1,9 @@
-headerNav = document.getElementById("header-nav")
-loggedIn = document.createElement('h4')
-headerNav.append(loggedIn)
+
 
 function login() {
+
+    
+    
     
     const form = document.createElement("form")
     form.innerHTML = `<div class="signup-page">
@@ -26,13 +27,9 @@ form.addEventListener("submit", (event) => {
     
     
     axios.post('/users/login', data).then((res) => {
-        message = res.data.message
-        loginSuccessfull = document.createElement("h1")
-        loginSuccessfull.innerHTML = message 
-        mainDiv.append(loginSuccessfull)
-        loggedIn.innerHTML = "Logged In as: " + res.data.loggedIn
         
-
+        location.reload();
+        
     }).catch(err => {
         message = err.response.data.message
         loginNotSuccessfull = document.createElement("h1")

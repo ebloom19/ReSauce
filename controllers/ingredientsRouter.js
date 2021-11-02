@@ -5,9 +5,10 @@ const ingredients = require("../models/ingredients_model");
 const router = express.Router();
 
 router.post('/', (req, res) => {
-    console.log(req.body)
-    // need users id from sessions
-    ingredients.addIngredient(5, req.body.ingredient).then((s) => {
+    // checks sessions for user id
+    userID  =  req.session.userId
+    
+    ingredients.addIngredient(userID, req.body.ingredient).then((s) => {
         res.json({ status: "ok"})
     })
 })
