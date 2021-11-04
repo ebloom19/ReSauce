@@ -40,3 +40,25 @@ form.addEventListener("submit", (event) => {
 })
 
 }
+
+// checks if someone is logged in and displays there name 
+function loggInMessage() {
+    axios.get('/users').then((res) => {
+        loggedIn.innerText = "Logged In As:  " + res.data.message
+        
+        ingredients()
+        
+        swap = document.getElementById('login')
+        swap.outerHTML = '<li id="login" onClick="logout()">Logout</li>'
+
+        document.getElementById("sign-up").style.display = 'none'
+        
+     })
+     
+}
+
+
+function logout(){
+    axios.delete("/users").then((res) => console.log(res.data));
+    location.reload();
+}
