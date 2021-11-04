@@ -4,27 +4,18 @@ header()
 
 const headerNav = document.getElementById("header-nav")
 const loggedIn = document.createElement('h4')
+loggedIn.setAttribute('id', 'loggin_message')
 headerNav.append(loggedIn)
 
 const mainDiv = document.createElement("div")
 mainDiv.setAttribute("id", "main_div")
 document.body.append(mainDiv)
 
-// checks if someone is logged in and displays there name 
-function loggInMessage() {
-    axios.get('/users').then((res) => {
-        loggedIn.innerText = "Logged In As:  " + res.data.message
 
-        ingredients()
-        
-        
-     })
-
-}
 home()
 loggInMessage()
 
-console.log(loggedIn.innerText)
+
 
 
 
