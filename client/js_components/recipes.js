@@ -113,17 +113,12 @@ function renderMethod(id) {
         recipeSummaryEl.id = 'recipeSummary';
         recipeSummaryDiv.append(recipeSummaryEl);
 
-
         recipeDiv.append(recipeSummaryDiv)
         
-
         // Creating a numbered list of instructions
         const orderedList = document.createElement('ol');
         orderedList.classList = 'form';
         orderedList.id = 'recipeSteps';
-
-
-        console.log(recipeData);
 
         for (step in recipeData[recipeName]["steps"]) {
             const aStep = steps[step].step;
@@ -133,8 +128,57 @@ function renderMethod(id) {
             orderedList.append(createNewStep)
         }
         recipeDiv.append(orderedList)
-
         mainDiv.replaceChildren(recipeDiv);
+
+        const recipeIngredientsDiv = document.createElement('div');
+        recipeIngredientsDiv.id = 'recipeIngredientsDiv';
+
+        const recipeIngredientsHeading = document.createElement('h3');
+        recipeIngredientsHeading.innerText = 'Ingredients:'
+        recipeIngredientsHeading.id = 'recipeIngredientsHeading';
+        recipeIngredientsDiv.append(recipeIngredientsHeading);
+
+        const ingredientsTable = document.createElement('table');
+        ingredientsTable.id = 'ingredientsTable';
+
+        const ingredientsTableTopRow = document.createElement('tr');
+
+        const ingredientsTableName = document.createElement('th');
+        ingredientsTableName.innerText = 'Ingredient';
+        ingredientsTableTopRow.append(ingredientsTableName);
+
+        const ingredientsTableQty = document.createElement('th');
+        ingredientsTableQty.innerText = 'Quantity';
+        ingredientsTableTopRow.append(ingredientsTableQty)
+
+        const ingredientsTableMethod = document.createElement('th');
+        ingredientsTableMethod.innerText = 'Method';
+        ingredientsTableTopRow.append(ingredientsTableMethod);
+
+        ingredientsTable.append(ingredientsTableTopRow);
+
+        const ingredientsObject = recipeData[recipeName]["ingredients"];
+
+        for (ingredient in ingredientsObject) {
+            const ingredientsTableRow = document.createElement('tr');
+
+            const name = document.createElement('td');
+            name.innerText = ingredientsObject[ingredient]['ingredient'];
+            ingredientsTableRow.append(name);
+
+            const qty = document.createElement('td');
+            qty.innerText = `${ ingredientsObject[ingredient]['qty']} ${ingredientsObject[ingredient]['unit']}`;
+            ingredientsTableRow.append(qty);
+
+            const method = document.createElement('td');
+            method.innerText = ingredientsObject[ingredient]['method'];
+            ingredientsTableRow.append(method)
+            
+            ingredientsTable.append(ingredientsTableRow);
+        }
+
+        recipeIngredientsDiv.append(ingredientsTable);
+        recipeSummaryDiv.append(recipeIngredientsDiv)
     });
 }
 
