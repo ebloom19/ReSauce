@@ -28,8 +28,9 @@ function ingredientsToUrl(ingredients) {
 recipesRouter.get('/', (req, res) => {
     
     // needs users id from session
+    userID  =  req.session.userId
     usersIngredients = []
-    ingredients.getIngredients(5).then((response) => {
+    ingredients.getIngredients(userID).then((response) => {
         
         for (data of response) {
             usersIngredients.push(data.ingredients)
