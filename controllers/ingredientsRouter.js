@@ -5,10 +5,12 @@ const ingredients = require("../models/ingredients_model");
 
 const router = express.Router();
 
-let tempIngredients = []
 
+// set cookies to handle no user experiance 
+// get help from Katie
 router.post('/', (req, res) => {
     if (!req.session.username) {
+        let tempIngredients = []
         tempIngredients.push({ingredients:req.body.ingredient})
         console.log(tempIngredients)
     }else{
@@ -25,7 +27,7 @@ router.get('/', (req, res) => {
     userID  =  req.session.userId
     ingredients.getIngredients(userID).then((response) => {
         if (!req.session.username){
-            res.json(tempIngredients)
+            
         }else{
         res.json(response)
         }
@@ -40,7 +42,6 @@ router.delete("/:id", (req, res) => {
 
 
 
-// module.exports = router;
+module.exports = router;
 
-exports.router = router
-exports.tempIngredients = tempIngredients
+

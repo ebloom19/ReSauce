@@ -41,7 +41,7 @@ app.use('/users', usersRouter);
 
 app.use('/recipes', recipeRouter);
 
-app.use('/ingredients', ingredientsRouter.router);
+app.use('/ingredients', ingredientsRouter);
 
 app.listen(port, () => {
     console.log(`listening on port  http://localhost:${port}`);
