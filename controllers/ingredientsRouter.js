@@ -1,4 +1,4 @@
-const { EPROTONOSUPPORT } = require('constants');
+
 const express = require('express');
 
 const ingredients = require("../models/ingredients_model");
@@ -9,7 +9,7 @@ let tempIngredients = []
 
 router.post('/', (req, res) => {
     if (!req.session.username) {
-        tempIngredients.push(req.body.ingredient)
+        tempIngredients.push({ingredients:req.body.ingredient})
         console.log(tempIngredients)
     }else{
     
@@ -24,7 +24,11 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
     userID  =  req.session.userId
     ingredients.getIngredients(userID).then((response) => {
+        if (!req.session.username){
+            res.json(tempIngredients)
+        }else{
         res.json(response)
+        }
     })
 })
 
