@@ -23,3 +23,12 @@ CREATE TABLE ingredients (
 
 
 DELETE FROM users WHERE name = '';
+
+CREATE TABLE favRecipes(
+    id SERIAL PRIMARY KEY, 
+    users_id INTEGER,
+    recipe_id INTEGER,
+    title TEXT,
+    img TEXT
+);
+

@@ -14,6 +14,7 @@ const pgSession = connectPgSimple(expressSession);
 const recipeRouter = require('./controllers/recipesRouter');
 const usersRouter = require('./controllers/users');
 const ingredientsRouter = require('./controllers/ingredientsRouter');
+const favRecipesRouter = require('./controllers/favRecipesRouter');
 const ensureAuth = require("./middleware/loggedInCheck")
 
 const app = express();
@@ -42,6 +43,8 @@ app.use('/users', usersRouter);
 app.use('/recipes', recipeRouter);
 
 app.use('/ingredients', ingredientsRouter);
+
+app.use('/favouriteRecipe', favRecipesRouter);
 
 app.listen(port, () => {
     console.log(`listening on port  http://localhost:${port}`);
