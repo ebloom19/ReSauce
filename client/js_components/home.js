@@ -13,10 +13,6 @@ function home() {
                        ingredients and our internal servers will automatically 'sauce' delicious gourmet 
                        meals you can cook, which include all the listed ingredients.
                        
-                       you will also be able to list expiry dates under all the ingredients which will 
-                       generate alerts/ notifications to remind you that your ingredients need to be 
-                       'ReSauced'.
-                       
                        Feel free to give it a try by heading over to the 'Ingredients' page above.`
 
     mainDiv.append(intro)                   

@@ -15,7 +15,6 @@ function search() {
         const recipesDiv = document.createElement('div');
         recipesDiv.classList = 'recipesDiv';
 
-
         for (recipe in recipesResponse.data) {
             const recipeDiv = document.createElement('div');
             recipeDiv.classList = 'recipeDiv';
@@ -68,6 +67,8 @@ function renderMethod(id) {
 
         const steps = methodResults.data.analyzedInstructions[0].steps;
         recipeData[recipeName]["steps"] = methodResults.data.analyzedInstructions[0].steps;
+
+        console.log(recipeData[recipeName])
         
         for (ingredient in ingredientsData) {
             const ingredientId = ingredientsData[ingredient].id;
@@ -130,7 +131,7 @@ function renderMethod(id) {
 
         const favRecipe = document.createElement('button');
         favRecipe.textContent = "Favourite"
-        // favRecipe.setAttribute('onClick', ``);
+        favRecipe.setAttribute('onClick', `${recipeData[recipeName][recipeImage]}`);
         recipeSummaryDiv.append(favRecipe)
         const recipeIngredientsDiv = document.createElement('div');
         recipeIngredientsDiv.id = 'recipeIngredientsDiv';

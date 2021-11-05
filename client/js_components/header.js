@@ -12,9 +12,9 @@ document.body.append(fresh)
 
 
 // setting up the logo
-const logo = document.createElement("h1")
-logo.innerText = "ReSauce"
-logo.setAttribute("id", "logo")
+const logo = document.createElement("img")
+logo.setAttribute('src', '../images/ReSauce.png')
+logo.id = 'logo'
 document.body.append(logo)
 
 // setting up the header-nav
