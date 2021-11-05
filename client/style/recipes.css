@@ -10,6 +10,10 @@ body {
     margin: 20px 0 0 0;
 }
 
+#logo {
+    width: 400px;
+}
+
 #steps {
     margin: 10px 0 10px 0;
 }
@@ -172,6 +176,21 @@ td {
         border: none;
         border-top: 2px solid black;
         border-bottom: 2px solid black;
+    }
+
+    #logo {
+        width: 260px;
+        margin: 10px 0 10px 0;
+    }
+
+    #intro {
+        font-size: 15px;
+        text-align: left;
+        padding: 10px 40px 0 40px;
+    }
+    
+    #freshness {
+        display: none;
     }
 
     #main_div {
