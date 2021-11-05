@@ -13,6 +13,7 @@ function search() {
         const recipesDiv = document.createElement('div');
         recipesDiv.classList = 'recipesDiv';
 
+
         for (recipe in recipesResponse.data) {
             const recipeDiv = document.createElement('div');
             recipeDiv.classList = 'recipeDiv';
@@ -33,6 +34,7 @@ function search() {
             usedIngredients.classList = 'usedIngredientsBottomRight';
             recipeDiv.append(usedIngredients);
             recipesDiv.append(recipeDiv);
+
         };
 
         mainDiv.replaceChildren(recipesDiv);
@@ -133,6 +135,11 @@ function renderMethod(id) {
             orderedList.append(createNewStep)
         }
         recipeDiv.append(orderedList)
+
+        const favRecipe = document.createElement('button');
+        favRecipe.textContent = "Favourite"
+        // favRecipe.setAttribute('onClick', ``);
+        recipeSummaryDiv.append(favRecipe)
 
         mainDiv.replaceChildren(recipeDiv);
     });
