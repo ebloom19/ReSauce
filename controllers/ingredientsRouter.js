@@ -6,13 +6,12 @@ const ingredients = require("../models/ingredients_model");
 const router = express.Router();
 
 
-// set cookies to handle no user experiance 
-// get help from Katie
+
+// ask about sync changes
 router.post('/', (req, res) => {
     if (!req.session.username) {
         let tempIngredients = []
-        tempIngredients.push({ingredients:req.body.ingredient})
-        console.log(tempIngredients)
+        res.json(req.body)
     }else{
     
     userID  =  req.session.userId
@@ -26,11 +25,9 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
     userID  =  req.session.userId
     ingredients.getIngredients(userID).then((response) => {
-        if (!req.session.username){
-            
-        }else{
+        
         res.json(response)
-        }
+        
     })
 })
 

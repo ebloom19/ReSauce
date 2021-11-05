@@ -6,8 +6,10 @@
 // }
 
 
+
 function search() {
-    axios.get('/recipes').then((recipesResponse) => {
+    console.log(testArray)
+    axios.post('/recipes', testArray).then((recipesResponse) => {
         // Info pulled from initial search
 
         const recipesDiv = document.createElement('div');
@@ -39,6 +41,8 @@ function search() {
     });
 
 }
+
+
 
 function renderMethod(id) {
     axios.get(`/recipes/details/${id}`).then((methodResults) => {
