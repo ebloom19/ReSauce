@@ -38,7 +38,7 @@ app.use(express.static("client"));
 
 app.use('/users', usersRouter);
 
-app.use(ensureAuth);
+// app.use(ensureAuth);
 
 app.use('/recipes', recipeRouter);
 

@@ -11,6 +11,7 @@ const mainDiv = document.createElement("div")
 mainDiv.setAttribute("id", "main_div")
 document.body.append(mainDiv)
 
+let testArray = []
 
 home()
 loggInMessage()

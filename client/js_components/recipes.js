@@ -6,8 +6,10 @@
 // }
 
 
+
 function search() {
-    axios.get('/recipes').then((recipesResponse) => {
+    console.log(testArray)
+    axios.post('/recipes', testArray).then((recipesResponse) => {
         // Info pulled from initial search
 
         const recipesDiv = document.createElement('div');
@@ -41,6 +43,8 @@ function search() {
     });
 
 }
+
+
 
 function renderMethod(id) {
     axios.get(`/recipes/details/${id}`).then((methodResults) => {
@@ -96,14 +100,8 @@ function renderMethod(id) {
         recipeSummaryDiv.append(recipeTitleEl);
 
         const cookTimeEl = document.createElement('p')
-        cookTimeEl.innerText = 'Cook Time: ' + recipeData[recipeName]["cookTime"] + ' minutes';
-        cookTimeEl.id = 'quantity';
+        cookTimeEl.innerText = `Cook Time: ${recipeData[recipeName]["cookTime"]} minutes | Serving Size: ${recipeData[recipeName]["servingSize"]}`;
         recipeSummaryDiv.append(cookTimeEl);
-
-        const servings = document.createElement('p');
-        servings.innerText = 'Serving Size: ' + recipeData[recipeName]["servingSize"];
-        servings.id = 'servings';
-        recipeSummaryDiv.append(servings);
 
         const recipeImageEl = document.createElement('img');
         recipeImageEl.id = 'recipeImage';
@@ -114,18 +112,12 @@ function renderMethod(id) {
         recipeSummaryEl.innerHTML = recipeData[recipeName]["recipeSummary"]
         recipeSummaryEl.id = 'recipeSummary';
         recipeSummaryDiv.append(recipeSummaryEl);
-
-
-        recipeDiv.append(recipeSummaryDiv)
         
-
         // Creating a numbered list of instructions
         const orderedList = document.createElement('ol');
-        orderedList.classList = 'form';
         orderedList.id = 'recipeSteps';
 
-
-        console.log(recipeData);
+        recipeDiv.append(recipeSummaryDiv);
 
         for (step in recipeData[recipeName]["steps"]) {
             const aStep = steps[step].step;
@@ -140,6 +132,56 @@ function renderMethod(id) {
         favRecipe.textContent = "Favourite"
         // favRecipe.setAttribute('onClick', ``);
         recipeSummaryDiv.append(favRecipe)
+        const recipeIngredientsDiv = document.createElement('div');
+        recipeIngredientsDiv.id = 'recipeIngredientsDiv';
+
+        const recipeIngredientsHeading = document.createElement('h3');
+        recipeIngredientsHeading.innerText = 'Ingredients:'
+        recipeIngredientsHeading.id = 'recipeIngredientsHeading';
+        recipeIngredientsDiv.append(recipeIngredientsHeading);
+
+        const ingredientsTable = document.createElement('table');
+        ingredientsTable.id = 'ingredientsTable';
+
+        const ingredientsTableTopRow = document.createElement('tr');
+
+        const ingredientsTableName = document.createElement('th');
+        ingredientsTableName.innerText = 'Ingredient';
+        ingredientsTableTopRow.append(ingredientsTableName);
+
+        const ingredientsTableQty = document.createElement('th');
+        ingredientsTableQty.innerText = 'Quantity';
+        ingredientsTableTopRow.append(ingredientsTableQty)
+
+        const ingredientsTableMethod = document.createElement('th');
+        ingredientsTableMethod.innerText = 'Method';
+        ingredientsTableTopRow.append(ingredientsTableMethod);
+
+        ingredientsTable.append(ingredientsTableTopRow);
+
+        const ingredientsObject = recipeData[recipeName]["ingredients"];
+
+        for (ingredient in ingredientsObject) {
+            const ingredientsTableRow = document.createElement('tr');
+
+            const name = document.createElement('td');
+            name.innerText = ingredientsObject[ingredient]['ingredient'].charAt(0).toUpperCase() + ingredientsObject[ingredient]['ingredient'].slice(1);
+
+            ingredientsTableRow.append(name);
+
+            const qty = document.createElement('td');
+            qty.innerText = `${ ingredientsObject[ingredient]['qty']} ${ingredientsObject[ingredient]['unit']}`;
+            ingredientsTableRow.append(qty);
+
+            const method = document.createElement('td');
+            method.innerText = ingredientsObject[ingredient]['method'];
+            ingredientsTableRow.append(method);
+            
+            ingredientsTable.append(ingredientsTableRow);
+        }
+
+        recipeIngredientsDiv.append(ingredientsTable);
+        recipeSummaryDiv.append(recipeIngredientsDiv);
 
         mainDiv.replaceChildren(recipeDiv);
     });

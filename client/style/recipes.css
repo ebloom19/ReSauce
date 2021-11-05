@@ -1,9 +1,9 @@
 #recipeSteps {
     position: relative;
     z-index: 1;
-    padding: 30px 45px 30px 45px;
+    padding: 15px 45px 30px 45px;
     text-align: left;
-    margin: 80px 0 0 20px;
+    margin: 20px 0 0 0;
 }
 
 #steps {
@@ -20,7 +20,7 @@
 }
 
 #recipeImage {
-    width: 150px;
+    width: 530px;
 }
 
 .recipesDiv {
@@ -41,13 +41,16 @@
 .recipeImage {
     width: 500px;
     height: auto;
+    -moz-box-shadow: 3px 6px 9px rgba(0,0,0,.5);
+    -webkit-box-shadow: 3px 6px 9px rgba(0,0,0,.5);
+    box-shadow: 3px 6px 9px rgba(0,0,0,.5);
 }
 
 .usedIngredientsBottomRight {
     position: absolute;
     bottom: 8px;
     right: 20px;
-    padding: 5px;
+    padding: 2px 5px 2px 5px;
     border-radius: 8px;
     background-color: white;
 }
@@ -56,8 +59,118 @@
     position: absolute;
     top: 8px;
     left: 20px;
-    padding: 5px;
+    padding: 2px 5px 2px 5px;
     border-radius: 8px;
     background-color: white;
 }
 
+th {
+    border: 2px solid black;
+}
+
+td {
+    border: 1px solid black;
+}
+
+#selectedRecipeDiv {
+    width: 530px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    padding: 22px 45px 45px 45px;
+}
+
+#selectedRecipeDiv > p {
+    text-align: left;
+}
+
+#recipeIngredientsDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#recipeIngredientsDiv > h3 {
+    width: 526px;
+    text-align: left;
+}
+
+#recipeSummary {
+    text-align: left;
+    margin: auto 0;
+    margin-top: 20px;
+}
+
+#selectedRecipeDiv > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+    #selectedRecipeDiv {
+        width: 310px;
+        padding: 11px 22px 22px 22px;
+    }
+    
+    #recipeImage {
+        width: 300px;
+    }
+
+    #recipeSummary {
+        width: 300px;
+        margin: 20px auto 0 0;
+    }
+
+    #recipeIngredientsDiv {
+        width: 350px;
+    }
+
+    #recipeSteps {
+        width: 260px;
+    }
+
+    table {
+        width: 300px;
+    }
+
+    #main_div {
+        margin: 0 auto 0;
+    }
+
+    .form {
+        margin: 0 auto 100px;
+        width: 250px;
+    }
+
+    .recipeImage {
+        width: 350px;
+        height: auto;
+        margin: 0 auto 0;
+    }
+
+    .recipeTitleTopLeft {
+        font-size: 17px;
+        max-width: 270px;
+        left: 100px;
+    }
+
+    #recipeIngredientsDiv > h3 {
+        width: 300px;
+    }
+
+    .usedIngredientsBottomRight {
+        right: 100px;
+    }
+
+    #selectedRecipeDiv > div > h2 {
+        margin: 8px 0 8px;
+    }
+
+    #selectedRecipeDiv > div > p {
+        margin: 8px 0 8px;
+    }
+
+}
