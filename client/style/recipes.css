@@ -1,3 +1,7 @@
+body {
+    font-family: 'Poiret One', cursive;
+}
+
 #recipeSteps {
     position: relative;
     z-index: 1;
@@ -10,6 +14,11 @@
     margin: 10px 0 10px 0;
 }
 
+#loggin_message {
+    padding: 15px 0 20px 0;
+    margin: 0;
+}
+
 #recipeDiv {
     max-width: 600px;
     padding: 30px 45px 30px 45px;
@@ -17,6 +26,10 @@
     text-align: left;
     display: flex;
     flex-direction: row;
+}
+
+.signup-page > div {
+
 }
 
 #recipeImage {
@@ -46,10 +59,14 @@
     box-shadow: 3px 6px 9px rgba(0,0,0,.5);
 }
 
+#searchButton {
+    margin-top: 20px;
+}
+
 .usedIngredientsBottomRight {
     position: absolute;
     bottom: 8px;
-    right: 20px;
+    right: 35px;
     padding: 2px 5px 2px 5px;
     border-radius: 8px;
     background-color: white;
@@ -58,7 +75,8 @@
 .recipeTitleTopLeft {
     position: absolute;
     top: 8px;
-    left: 20px;
+    left: 35px;
+    max-width: 420px;
     padding: 2px 5px 2px 5px;
     border-radius: 8px;
     background-color: white;
@@ -108,8 +126,13 @@ td {
     align-items: center;
 }
 
-
 @media (min-width: 320px) and (max-width: 480px) {
+    body{
+        width: 400px;
+        margin: 0;
+    }
+
+
     #selectedRecipeDiv {
         width: 310px;
         padding: 11px 22px 22px 22px;
@@ -117,6 +140,15 @@ td {
     
     #recipeImage {
         width: 300px;
+    }
+
+    .recipesDiv {
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    .recipeDiv {
+        width: 400px;
     }
 
     #recipeSummary {
@@ -136,8 +168,15 @@ td {
         width: 300px;
     }
 
+    header {
+        border: none;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+    }
+
     #main_div {
-        margin: 0 auto 0;
+        margin: auto 0;
+        width: 400px;
     }
 
     .form {
@@ -148,13 +187,13 @@ td {
     .recipeImage {
         width: 350px;
         height: auto;
-        margin: 0 auto 0;
+        margin: auto 0;
     }
 
     .recipeTitleTopLeft {
         font-size: 17px;
         max-width: 270px;
-        left: 100px;
+        left: 50px;
     }
 
     #recipeIngredientsDiv > h3 {
@@ -162,7 +201,7 @@ td {
     }
 
     .usedIngredientsBottomRight {
-        right: 100px;
+        right: 50px;
     }
 
     #selectedRecipeDiv > div > h2 {
@@ -173,4 +212,7 @@ td {
         margin: 8px 0 8px;
     }
 
+    header ul li {
+        font-size: 20px;
+    }
 }

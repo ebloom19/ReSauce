@@ -60,5 +60,6 @@ function loggInMessage() {
 
 function logout(){
     axios.delete("/users").then((res) => console.log(res.data));
-    location.reload();
+    window.location.reload();
+    console.log('logged out')
 }

@@ -24,13 +24,12 @@ header {
 }
 
 header ul li {
-    
     list-style-type: none;
     display: inline;
     padding-right: 15px;
     padding-left: 15px;
     line-height: 100px; 
-    font-size: 20px;
+    font-size: 30px;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -64,7 +63,11 @@ header ul li:hover {
     font-size: 20px;
 }
 
-#login {
-    margin-right: -222px;
+#header-nav > ul {
+    height: 90px;
+    width: auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
