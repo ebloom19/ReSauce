@@ -4,6 +4,8 @@ const bcrypt = require("bcrypt");
 
 const users = require("../models/users_model");
 
+const ingredients = require("../models/ingredients_model");
+
 const router = express.Router();
 
 
@@ -16,11 +18,18 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-    passwordHash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null);
-    
-    users.addUser(req.body.name, req.body.email, passwordHash).then((s) => {
-        res.json({ status: "ok"})
+    console.log(req.body[1])
+    passwordHash = bcrypt.hashSync(req.body[0].password, bcrypt.genSaltSync(10), null);
+    users.addUser(req.body[0].name, req.body[0].email, passwordHash).then((s) => {
+        users.login(req.body[0].email).then((res) => {
+            for (ing of req.body[1]) {
+                ingredients.addIngredient(res[0].id, ing.ingredients)
+            }
+        })
+        res.json({ status: "ok"})  
     })
+    
+
 })
 
 router.post('/login', (req, res) => {

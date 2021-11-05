@@ -10,7 +10,6 @@ const router = express.Router();
 // ask about sync changes
 router.post('/', (req, res) => {
     if (!req.session.username) {
-        let tempIngredients = []
         res.json(req.body)
     }else{
     
