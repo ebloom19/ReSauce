@@ -94,14 +94,8 @@ function renderMethod(id) {
         recipeSummaryDiv.append(recipeTitleEl);
 
         const cookTimeEl = document.createElement('p')
-        cookTimeEl.innerText = 'Cook Time: ' + recipeData[recipeName]["cookTime"] + ' minutes';
-        cookTimeEl.id = 'quantity';
+        cookTimeEl.innerText = `Cook Time: ${recipeData[recipeName]["cookTime"]} minutes | Serving Size: ${recipeData[recipeName]["servingSize"]}`;
         recipeSummaryDiv.append(cookTimeEl);
-
-        const servings = document.createElement('p');
-        servings.innerText = 'Serving Size: ' + recipeData[recipeName]["servingSize"];
-        servings.id = 'servings';
-        recipeSummaryDiv.append(servings);
 
         const recipeImageEl = document.createElement('img');
         recipeImageEl.id = 'recipeImage';
@@ -112,13 +106,12 @@ function renderMethod(id) {
         recipeSummaryEl.innerHTML = recipeData[recipeName]["recipeSummary"]
         recipeSummaryEl.id = 'recipeSummary';
         recipeSummaryDiv.append(recipeSummaryEl);
-
-        recipeDiv.append(recipeSummaryDiv)
         
         // Creating a numbered list of instructions
         const orderedList = document.createElement('ol');
-        orderedList.classList = 'form';
         orderedList.id = 'recipeSteps';
+
+        recipeDiv.append(recipeSummaryDiv);
 
         for (step in recipeData[recipeName]["steps"]) {
             const aStep = steps[step].step;
@@ -128,7 +121,6 @@ function renderMethod(id) {
             orderedList.append(createNewStep)
         }
         recipeDiv.append(orderedList)
-        mainDiv.replaceChildren(recipeDiv);
 
         const recipeIngredientsDiv = document.createElement('div');
         recipeIngredientsDiv.id = 'recipeIngredientsDiv';
@@ -163,7 +155,8 @@ function renderMethod(id) {
             const ingredientsTableRow = document.createElement('tr');
 
             const name = document.createElement('td');
-            name.innerText = ingredientsObject[ingredient]['ingredient'];
+            name.innerText = ingredientsObject[ingredient]['ingredient'].charAt(0).toUpperCase() + ingredientsObject[ingredient]['ingredient'].slice(1);
+
             ingredientsTableRow.append(name);
 
             const qty = document.createElement('td');
@@ -172,13 +165,15 @@ function renderMethod(id) {
 
             const method = document.createElement('td');
             method.innerText = ingredientsObject[ingredient]['method'];
-            ingredientsTableRow.append(method)
+            ingredientsTableRow.append(method);
             
             ingredientsTable.append(ingredientsTableRow);
         }
 
         recipeIngredientsDiv.append(ingredientsTable);
-        recipeSummaryDiv.append(recipeIngredientsDiv)
+        recipeSummaryDiv.append(recipeIngredientsDiv);
+
+        mainDiv.replaceChildren(recipeDiv);
     });
 }
 
