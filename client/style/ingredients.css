@@ -1,0 +1,47 @@
+
+
+#deleteIngre{
+    border-radius: 50%;
+    border: none;
+    color: white;
+    text-align: center;
+    background-color: black;
+    font-size: 10px;
+}
+
+#userIngre{
+    font-size: 25px;
+}
+
+#searchButton {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #bd3213;
+    width: 41%;
+    border: 0;
+    margin-bottom: 25px;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+    
+#ingDiv {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin-top: 25px;
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    width: 360px;
+    margin: 0 auto 100px;
+    margin-bottom: 5px;
+    padding: 45px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
