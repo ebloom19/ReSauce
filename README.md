@@ -8,4 +8,8 @@ ReSauce is a one stop website to spice up your meals helping suggest meals based
 
 ## Technologies Used
 
+This app is built using an Express.js framework. The internal structure of the project utelises a postgresSQL db to store users login info and saved ingredients. The website pulls recepies from the Spoonacular API, to filter for recepies based upon the users ingreideints. 
 
+To install and run the environment locally - follow: 
+- npm install (To install reuired dependancies)
+- npm run local (To run the application on the local machine, will run the local cmd in package.json)
